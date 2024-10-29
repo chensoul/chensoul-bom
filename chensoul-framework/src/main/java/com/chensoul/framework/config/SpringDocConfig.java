@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Profile;
 @Profile(PROFILE_NOT_PROD)
 @Configuration(proxyBeanMethods = false)
 // @OpenAPIDefinition(info = @Info(title = "app", version = "v1"))
-class OpenApiConfig {
+class SpringDocConfig {
     static {
         SpringDocUtils.getConfig().replaceWithClass(ByteBuffer.class, String.class);
     }
