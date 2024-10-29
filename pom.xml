@@ -38,8 +38,11 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/chensoul/chensoul-bom/</connection>
-        <url>https://github.com/chensoul/chensoul-bom/</url>
+        <!-- 使用 https：因为 publish-scm 插件-->
+        <url>https://github.com/chensoul/chensoul-bom.git</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
