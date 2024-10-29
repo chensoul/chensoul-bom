@@ -419,11 +419,11 @@
             <distributionManagement>
                 <snapshotRepository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/chensoul/spring-boot3-microservices/</url>
+                    <url>https://maven.pkg.github.com/chensoul/chensoul-bom/</url>
                 </snapshotRepository>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/chensoul/spring-boot3-microservices/</url>
+                    <url>https://maven.pkg.github.com/chensoul/chensoul-bom/</url>
                 </repository>
             </distributionManagement>
         </profile>
