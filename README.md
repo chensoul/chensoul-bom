@@ -15,6 +15,7 @@ This is the Bill of Materials and server-side library:
 ## Prerequisites
 
 - Jdk 21+
+- Maven 3.2.5
 
 
 ## How to?
@@ -33,7 +34,7 @@ cd chensoul-bom
 
 ## References
 
-- https://github.com/chensoul/chensoul-bom
+- [https://github.com/jhipster/jhipster-bom](https://github.com/jhipster/jhipster-bom)
 
 
 [maven-image]: https://maven-badges.herokuapp.com/maven-central/com.chensoul/chensoul-bom/badge.svg
