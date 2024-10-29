@@ -1,0 +1,1 @@
+{"doc":" Logback configuration is achieved by configuration file and API.\n When configuration file change is detected, the configuration is reset.\n This listener ensures that the programmatic configuration is also re-applied after reset.\n","fields":[],"enumConstants":[],"methods":[],"constructors":[]}

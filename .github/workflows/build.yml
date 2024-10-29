@@ -1,0 +1,35 @@
+name: Test, Sonar and deploy.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches:
+      - main
+
+jobs:
+  build-and-analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+          cache: 'maven'
+      - name: Test with Maven
+        run: ./mvnw clean test -B
+      - name: Run Sonar analysis
+        if: github.repository == 'chensoul/chensoul-bom' && github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./mvnw -ntp -B initialize org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=chensoul-framework -Dsonar.organization=chensoul -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: Deploy to github packages
+        if: github.repository == 'chensoul/chensoul-bom' && github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./mvnw deploy -Dgpg.skip -Dgithub
