@@ -31,9 +31,14 @@
         <developer>
             <id>chensoul</id>
             <name>chensoul</name>
-            <url>https://blog.chensoul.cc/</url>
+            <email>ichensoul@gmail.com</email>
+            <url>https://blog.chensoul.cc</url>
+            <roles>
+                <role>developer</role>
+            </roles>
             <organization>ChenSoul</organization>
             <organizationUrl>https://blog.chensoul.cc/</organizationUrl>
+            <timezone>+8</timezone>
         </developer>
     </developers>
 
@@ -190,6 +195,10 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <runOrder>alphabetical</runOrder>
+                        <includes>
+                            <include>**/*Tests.java</include>
+                            <include>**/*Test.java</include>
+                        </includes>
                         <excludes>
                             <exclude>**/*IT*</exclude>
                             <exclude>**/*IntTest*</exclude>
