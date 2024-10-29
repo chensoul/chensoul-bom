@@ -1,1 +1,0 @@
-{"doc":"","fields":[],"enumConstants":[],"methods":[{"name":"allMetrics","paramTypes":[],"doc":" GET /actuator/aggmetrics\n <p>\n Give metrics displayed on Metrics page\n\n @return a Map with a String defining a category of metrics as Key and\n another Map containing metrics related to this category as Value\n"}],"constructors":[]}
