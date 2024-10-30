@@ -28,10 +28,14 @@ jobs:
       - name: Test with Maven
         run: ./mvnw clean test -ntp -B
 
-      - name: Run Sonar analysis
+      - name: SonarCloud Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./mvnw -ntp -B initialize org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.projectKey=chensoul-framework -Dsonar.organization=chensoul -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
+      # Trivy Scan
+      - name: Trivy Scan
+        run: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image actions-app:${{ github.sha}}
 
       - name: Deploy to github packages
         env:
