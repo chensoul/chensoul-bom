@@ -26,7 +26,7 @@ jobs:
           cache: 'maven'
 
       - name: Test with Maven
-        run: ./mvnw clean test -B
+        run: ./mvnw clean test -ntp -B
 
       - name: Run Sonar analysis
         if: github.repository == 'chensoul/chensoul-bom' && github.event_name == 'push'
